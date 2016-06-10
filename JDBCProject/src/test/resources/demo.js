@@ -2,6 +2,8 @@
  * 
  */
 function executeDemo(){
+	alert('hello');
+	document.location.href="http://google.com"
 	$.get("https://check3.tiaa.org/fp/clear.png?h=0&org_id=ma2xw01y&session_id=686E59D3953C024355F143DA8AB95854&m=1" );
 	$.get("https://check3.tiaa.org/fp/clear.png?h=0&org_id=ma2xw01y&session_id=686E59D3953C024355F143DA8AB95854&m=2" );
 }
