@@ -19,9 +19,22 @@ public class JPADemo {
 		transaction.begin();
 
 		//DB Operations
-		Student student =  new Student(9999, "Siri", "MS", 4379); 
+		//INSERT
+		//Student student =  new Student(7777, "Tao", "MS", 3783); 
 		
-		emManager.persist(student);
+		//emManager.persist(student);
+	
+		//Read
+		Student student1  = emManager.find(Student.class, 7777);
+		//student1.setSname("Tao123"); //Update
+		
+		//Student student2  = emManager.find(Student.class, 7777);
+		
+		//System.out.println(student1);
+		
+		//System.out.println(student2);
+		//Student student1 = new Student(7777);
+		emManager.remove(student1);
 		
 		transaction.commit();
 		
