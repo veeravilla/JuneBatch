@@ -7,12 +7,10 @@
 <title>Emp Login</title>
 </head>
 <body>
-	<h1><font color="red">${error}</font></h1>
 	<h1> Employee Login </h1>
-	<form  action="login" method="post"> <!-- HTTP GET -->
+	<form  action="mvc/sendData" method="post"> <!-- HTTP GET -->
 		User Name : <input type="text" name="username" />
 		Password  : <input type="password" name="password" />
-		Student Number : <input type="text" name="sno" />
 		<input type="submit" name="login" value="Login" />
 	</form>
 </body>

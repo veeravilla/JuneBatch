@@ -4,9 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Employee Portal</title>
+<title>Student Portal</title>
 </head>
 <body>
-  <h1>Welcome to Employee Portal ....</h1>
+  <h1>Welcome to Student Portal ....</h1>
+  <h2>Number : ${stuRes.sno} </h2>
+  <h2>Name : ${stuRes.sname}</h2>
+  <h2>Course : ${stuRes.course}</h2>
+  <h2>Fee : ${stuRes.fee}</h2>
 </body>
 </html>
