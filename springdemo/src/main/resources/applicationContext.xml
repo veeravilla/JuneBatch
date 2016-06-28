@@ -15,6 +15,7 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 	<context:component-scan base-package="com.test" />
 
 	<import resource="jdbcApplicationContext.xml"/>
+	<import resource="restContext.xml"/>
 	
 	<!-- View Reslover -->
 	<bean id="viewResolver"
