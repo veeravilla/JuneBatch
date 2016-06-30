@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:component-scan base-package="com.test" />
+
+	<!-- Beans -->
+	<bean id="propertyPlaceholderConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<!-- <property name="locations"> <list> <value>classpath*:database.properties</value> 
+			</list> </property> -->
+		<property name="location">
+			<!-- <value>file:C:\AprWorkspace\workspace\SpringProject\src\main\resources\com\test\app\database.properites</value> -->
+			<value>classpath:database.properites</value>
+		</property>
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+	</bean>
+	
+	
+
+	<bean id="mySQLDataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="url" value="${dbUrl}" />
+		<property name="password" value="${password}" />
+		<property name="username" value="${username}" />
+		<property name="driverClassName" value="${driverClassName}" />
+	</bean>
+	
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<constructor-arg name="dataSource" ref="mySQLDataSource"/>
+	</bean>
+
+	
+</beans>

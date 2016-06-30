@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jaxrs="http://cxf.apache.org/jaxrs" xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xmlns:cxf="http://cxf.apache.org/core" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
+http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd
+http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- CXF Resources -->
+	<import resource="classpath:META-INF/cxf/cxf.xml" />
+
+	<!--  <import resource="classpath:jdbcContext.xml" /> --><!-- JDBC Conf -->
+	<import resource="classpath:restClientApplicationContext.xml" /> 
+	
+	<context:component-scan base-package="com.test" />
+	
+	
+	<bean id="creditService" class="com.test.service.CreditService" />
+	
+	<bean id="personService" class="com.test.service.PersonService" />
+	
+	<!--  <bean id="ipService" class="com.test.service.IPDetailsService" />
+	<bean id="studentService" class="com.test.service.StudentService" />
+	
+	<bean id="requestInterceptor" class="com.test.service.CustomRequestInterceptor" />
+	
+	<bean id="exceptionHanlder" class="com.test.service.ExceptionHandler" /> -->
+
+	<!--  CXF Rest  Services-->
+	<jaxrs:server id="cxfServices" address="/">
+		<jaxrs:serviceBeans>
+			<ref bean="creditService" />
+			<ref bean="personService" /> 
+			<!-- <ref bean="ipService" />  -->
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<bean id="customProvider" class="org.codehaus.jackson.jaxrs.JacksonJaxbJsonProvider"/>
+			<!-- <ref bean="requestInterceptor"/>  --> 
+			<!-- <ref bean="exceptionHanlder"/>  -->
+		</jaxrs:providers>
+	</jaxrs:server>
+	
+	<!-- <jaxws:endpoint id="ipSOAPService"  implementor="#ipService"   address="/ipDetailService" />
+	<jaxws:endpoint id="creditSoapService"  implementor="#creditService"   address="/creditSoapService" />
+	<jaxws:endpoint id="studentSoapService"  implementor="#studentService"   address="/studentSoapService" />  -->	
+</beans>
+
+<!-- http://localhost:8083/cxfproject/service/empservice/?wsdl -->
