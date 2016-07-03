@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:CreditRequest xmlns:tns="http://www.test.com/service" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.test.com/service creditservice.xsd ">
+  <tns:ssn>123456789</tns:ssn>
+  <tns:fname>Jhon</tns:fname>
+  <tns:dob>10-10-1960</tns:dob>
+</tns:CreditRequest>

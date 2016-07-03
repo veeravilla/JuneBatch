@@ -13,6 +13,7 @@ import com.test.service.ErrorResponse;
 @Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
 public class ExceptionHandler implements ExceptionMapper<Exception> {
 	public Response toResponse(Exception exception) {
+		exception.printStackTrace();
 		ResponseBuilder rb = Response.status(Response.Status.INTERNAL_SERVER_ERROR);
 		ErrorResponse response = new ErrorResponse("Error", "Something went wrong while processing your request.. Try Again/Conatct Admin");
 		rb.entity(response);

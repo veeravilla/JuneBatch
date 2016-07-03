@@ -26,30 +26,30 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 	
 	<bean id="personService" class="com.test.service.PersonService" />
 	
-	<!--  <bean id="ipService" class="com.test.service.IPDetailsService" />
+	<bean id="ipService" class="com.test.service.IPDetailsService" />
 	<bean id="studentService" class="com.test.service.StudentService" />
 	
 	<bean id="requestInterceptor" class="com.test.service.CustomRequestInterceptor" />
 	
-	<bean id="exceptionHanlder" class="com.test.service.ExceptionHandler" /> -->
+	<bean id="exceptionHanlder" class="com.test.service.ExceptionHandler" /> 
 
 	<!--  CXF Rest  Services-->
-	<jaxrs:server id="cxfServices" address="/">
+	<!--  <jaxrs:server id="cxfServices" address="/">
 		<jaxrs:serviceBeans>
 			<ref bean="creditService" />
 			<ref bean="personService" /> 
-			<!-- <ref bean="ipService" />  -->
+			<ref bean="ipService" />
 		</jaxrs:serviceBeans>
 		<jaxrs:providers>
 			<bean id="customProvider" class="org.codehaus.jackson.jaxrs.JacksonJaxbJsonProvider"/>
-			<!-- <ref bean="requestInterceptor"/>  --> 
-			<!-- <ref bean="exceptionHanlder"/>  -->
+			<ref bean="requestInterceptor"/> 
+			<ref bean="exceptionHanlder"/>  
 		</jaxrs:providers>
-	</jaxrs:server>
+	</jaxrs:server> -->
 	
-	<!-- <jaxws:endpoint id="ipSOAPService"  implementor="#ipService"   address="/ipDetailService" />
+	<jaxws:endpoint id="ipSOAPService"  implementor="#ipService"   address="/ipDetailService" />
 	<jaxws:endpoint id="creditSoapService"  implementor="#creditService"   address="/creditSoapService" />
-	<jaxws:endpoint id="studentSoapService"  implementor="#studentService"   address="/studentSoapService" />  -->	
+	<jaxws:endpoint id="studentSoapService"  implementor="#studentService"   address="/studentSoapService" />	
 </beans>
 
 <!-- http://localhost:8083/cxfproject/service/empservice/?wsdl -->
